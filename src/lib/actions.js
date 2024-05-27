@@ -33,6 +33,7 @@ export async function shareMeal(prevState, formData) {
     };
   }
 
-  await saveMeal(meal);
-  redirect('/meals');
+  await saveMeal(meal); // saveMeal 함수가 실행되어 meal 데이터가 저장
+  revalidatePath('/meals'); // '/meals' 페이지를 재검증해 새로 저장된 meal 데이터를 적용
+  redirect('/meals'); // 새로운 meal 데이터가 적용된 '/meals' 페이지로 리다이렉트
 }
